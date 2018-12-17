@@ -156,6 +156,7 @@ public final class Utilities {
     public static final String KEY_SEARCH_RADIUS = "pref_search_radius_size";
     public static final String KEY_STATUS_BAR = "pref_show_statusbar";
     public static final String SHOW_HOTSEAT_BG = "show_hotseat_bg";
+    public static final String DESKTOP_SHOW_QUICKSPACE = "pref_show_quickspace";
 
     /**
      * Returns true if theme is dark.
@@ -951,5 +952,10 @@ public final class Utilities {
     public static boolean showStatusbarEnabled(Context context) {
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
         return prefs.getBoolean(KEY_STATUS_BAR, true);
+    }
+
+    public static boolean showQuickspace(Context context) {
+        SharedPreferences prefs = getPrefs(context.getApplicationContext());
+        return prefs.getBoolean(DESKTOP_SHOW_QUICKSPACE, true);
     }
 }
