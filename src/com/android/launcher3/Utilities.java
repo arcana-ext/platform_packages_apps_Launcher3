@@ -50,6 +50,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
 import android.net.Uri;
+import android.icu.text.DateFormat;
+import android.icu.text.DisplayContext;
 import android.os.Build;
 import android.os.DeadObjectException;
 import android.os.Handler;
@@ -59,6 +61,7 @@ import android.provider.Settings;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
+import android.text.format.DateUtils;
 import android.text.style.TtsSpan;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -157,6 +160,7 @@ public final class Utilities {
     public static final String KEY_STATUS_BAR = "pref_show_statusbar";
     public static final String SHOW_HOTSEAT_BG = "show_hotseat_bg";
     public static final String DESKTOP_SHOW_QUICKSPACE = "pref_show_quickspace";
+    public static final String KEY_SHOW_QUICKSPACE_PSONALITY = "pref_quickspace_psonality";
 
     /**
      * Returns true if theme is dark.
@@ -902,6 +906,21 @@ public final class Utilities {
         }
     }
 
+    public static String formatDateTime(Context context, long timeInMillis) {
+        try {
+            String format = "EEEE, MMM d";
+            String formattedDate;
+            DateFormat dateFormat = DateFormat.getInstanceForSkeleton(format, Locale.getDefault());
+            dateFormat.setContext(DisplayContext.CAPITALIZATION_FOR_STANDALONE);
+            formattedDate = dateFormat.format(timeInMillis);
+            return formattedDate;
+        } catch (Throwable t) {
+            Log.e(TAG, "Error formatting At A Glance date", t);
+            return DateUtils.formatDateTime(context, timeInMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_MONTH);
+        }
+
+    }
+
     public static void restart(final Context context) {
         MODEL_EXECUTOR.execute(() -> {
             try {
@@ -957,5 +976,9 @@ public final class Utilities {
     public static boolean showQuickspace(Context context) {
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
         return prefs.getBoolean(DESKTOP_SHOW_QUICKSPACE, true);
+    }
+
+    public static boolean isQuickspacePersonalityEnabled(Context context) {
+        return getPrefs(context).getBoolean(KEY_SHOW_QUICKSPACE_PSONALITY, true);
     }
 }
