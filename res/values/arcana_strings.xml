@@ -42,4 +42,7 @@
     <string name="about_summary">Info about Arcana launcher</string>
     <string name="about_app_version">Version</string>
 
+    <!-- Recents -->
+    <string name="action_lens">Lens</string>
+
 </resources>
