@@ -44,7 +44,7 @@
         attributes and intent filters the same
         -->
         <activity
-            android:name="com.arcana.launcher.CustomLauncher"
+            android:name="com.android.launcher3.ArcanaLauncher"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"
