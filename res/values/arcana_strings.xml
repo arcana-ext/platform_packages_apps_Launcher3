@@ -30,4 +30,16 @@
     <!-- Folder titles -->
     <string name="google_folder_title" translatable="false">Google</string>
 
+    <!-- About info -->
+    <string name="about_app_version_summary">version 1.1</string>
+    <string name="app_info_drop_target_labelsummary">App permissions, usage, notifications</string>
+    <string name="about_arcana_title" translatable="false">Project Arcana Launcher</string>
+    <string name="about_arcana_summary">by dlwlrma123</string>
+    <string name="about_based_on_title">Based on AOSP Launcher3</string>
+    <string name="about_based_on_summary">by the Android Open Source Project</string>
+    <string name="about_thanks_cat">Special thanks</string>
+    <string name="about">About</string>
+    <string name="about_summary">Info about Arcana launcher</string>
+    <string name="about_app_version">Version</string>
+
 </resources>

@@ -62,4 +62,99 @@
         android:title="Developer Options"
         android:fragment="com.android.launcher3.settings.DeveloperOptionsFragment"/>
 
+    <PreferenceScreen
+        android:key="about"
+        android:title="@string/about"
+        android:summary="@string/about_summary">
+
+            <Preference
+                android:key="about_arcana"
+                android:title="@string/about_arcana_title"
+                android:summary="@string/about_arcana_summary"
+                android:persistent="false" >
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="https://projectarcana-aosp.github.io" />
+            </Preference>
+
+            <Preference
+                android:key="about_based_on"
+                android:title="@string/about_based_on_title"
+                android:summary="@string/about_based_on_summary"
+                android:persistent="false">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="https://android.googlesource.com/platform/packages/apps/Launcher3/" />
+            </Preference>
+
+            <Preference
+                android:key="about_app_version"
+                android:title="@string/about_app_version"
+                android:summary="@string/about_app_version_summary"
+                android:persistent="false">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="https://github.com/projectarcana-aosp/platform_packages_apps_Launcher3" />
+            </Preference>
+
+            <Preference
+                android:key="app_info"
+                android:title="@string/app_info_drop_target_label"
+                android:summary="@string/app_info_drop_target_labelsummary"
+                android:persistent="false">
+                <intent
+                    android:action="android.settings.APPLICATION_DETAILS_SETTINGS"
+                    android:data="package:com.android.launcher3" />
+            </Preference>
+
+            <PreferenceCategory 
+                android:key="about_thanks_category"
+                android:title="@string/about_thanks_cat" >
+
+                <Preference
+                    android:key="about_credit01"
+                    android:title="Lawnchair Team"
+                    android:persistent="false"
+                    android:selectable="false">
+                </Preference>
+
+                <Preference
+                    android:key="about_credit02"
+                    android:title="OmniROM"
+                    android:persistent="false"
+                    android:selectable="false">
+                </Preference>
+
+                <Preference
+                    android:key="about_credit03"
+                    android:title="Dirty Unicorns"
+                    android:persistent="false"
+                    android:selectable="false">
+                </Preference>
+
+                <Preference
+                    android:key="about_credit04"
+                    android:title="LineageOS"
+                    android:persistent="false"
+                    android:selectable="false">
+                </Preference>
+
+                <Preference
+                    android:key="about_credit05"
+                    android:title="hundeva (Lean Launcher)"
+                    android:persistent="false"
+                    android:selectable="false">
+                </Preference>
+
+                <Preference
+                    android:key="about_credit06"
+                    android:title="Amir Zaidi"
+                    android:persistent="false"
+                    android:selectable="false">
+                </Preference>
+
+            </PreferenceCategory>
+
+    </PreferenceScreen>
+
 </androidx.preference.PreferenceScreen>
