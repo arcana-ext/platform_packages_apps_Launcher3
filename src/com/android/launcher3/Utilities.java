@@ -131,8 +131,6 @@ public final class Utilities {
 
     public static final boolean ATLEAST_S = BuildCompat.isAtLeastS()
             || Build.VERSION.SDK_INT >= Build.VERSION_CODES.S;
-            
-    private static final long WAIT_BEFORE_RESTART = 250;
 
     private static final long WAIT_BEFORE_RESTART = 250;
 
