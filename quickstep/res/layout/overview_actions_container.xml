@@ -37,7 +37,7 @@
             android:layout_height="48dp"
             android:background="@drawable/recent_button_bg"
             android:backgroundTint="@color/recent_button_bg_color"
-            android:foreground="@drawable/ic_screenshot"
+            android:foreground="@drawable/ic_screenshot_overview"
             android:foregroundGravity="center"/>
 
         <Space
