@@ -38,11 +38,6 @@ import java.math.BigDecimal;
 
 public class MemInfoView extends TextView {
 
-    // When to show GB instead of MB
-    private static final int UNIT_CONVERT_THRESHOLD = 1024; /* MiB */
-
-    private static final BigDecimal GB2MB = new BigDecimal(1024);
-
     private static final int ALPHA_STATE_CTRL = 0;
     public static final int ALPHA_FS_PROGRESS = 1;
 
@@ -66,8 +61,6 @@ public class MemInfoView extends TextView {
     private Handler mHandler;
     private MemInfoWorker mWorker;
 
-    private String mMemInfoText;
-
     public MemInfoView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
@@ -76,8 +69,6 @@ public class MemInfoView extends TextView {
         mActivityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         mHandler = new Handler(Looper.getMainLooper());
         mWorker = new MemInfoWorker();
-
-        mMemInfoText = context.getResources().getString(R.string.meminfo_text);
     }
 
     /* Hijack this method to detect visibility rather than
@@ -118,32 +109,14 @@ public class MemInfoView extends TextView {
         lp.gravity = Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM;
     }
 
-    private String unitConvert(long valueMiB, boolean alignToGB) {
-        BigDecimal rawVal = new BigDecimal(valueMiB);
-
-        if (alignToGB)
-            return rawVal.divide(GB2MB, 0, BigDecimal.ROUND_UP) + " GB";
-
-        if (valueMiB > UNIT_CONVERT_THRESHOLD)
-            return rawVal.divide(GB2MB, 1, BigDecimal.ROUND_HALF_UP) + " GB";
-        else
-            return rawVal + " MB";
-    }
-
-    private void updateMemInfoText(long availMemMiB, long totalMemMiB) {
-        String text = String.format(mMemInfoText,
-            unitConvert(availMemMiB, false), unitConvert(totalMemMiB, true));
-        setText(text);
-    }
-
     private class MemInfoWorker implements Runnable {
         @Override
         public void run() {
             ActivityManager.MemoryInfo memInfo = new ActivityManager.MemoryInfo();
             mActivityManager.getMemoryInfo(memInfo);
-            long availMemMiB = memInfo.availMem / (1024 * 1024);
-            long totalMemMiB = memInfo.totalMem / (1024 * 1024);
-            updateMemInfoText(availMemMiB, totalMemMiB);
+            int availMemMiB = (int)(memInfo.availMem / 1048576L);
+            int totalMemMiB = (int)(memInfo.totalMem / 1048576L);
+            setText("RAM:" + " " + String.valueOf(availMemMiB) + "/" + String.valueOf(totalMemMiB) + " " +"MB");
 
             mHandler.postDelayed(this, 1000);
         }
