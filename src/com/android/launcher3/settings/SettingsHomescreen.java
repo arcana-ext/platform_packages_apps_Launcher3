@@ -102,7 +102,6 @@ public class SettingsHomescreen extends CollapsingToolbarBaseActivity
             case Utilities.KEY_STATUS_BAR:
             case Utilities.SHOW_HOTSEAT_BG:
             case Utilities.DESKTOP_SHOW_QUICKSPACE:
-            case Utilities.KEY_SHOW_QUICKSPACE_PSONALITY:
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
             default:

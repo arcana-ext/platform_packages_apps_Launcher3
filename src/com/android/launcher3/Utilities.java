@@ -160,7 +160,6 @@ public final class Utilities {
     public static final String KEY_STATUS_BAR = "pref_show_statusbar";
     public static final String SHOW_HOTSEAT_BG = "show_hotseat_bg";
     public static final String DESKTOP_SHOW_QUICKSPACE = "pref_show_quickspace";
-    public static final String KEY_SHOW_QUICKSPACE_PSONALITY = "pref_quickspace_psonality";
 
     /**
      * Returns true if theme is dark.
@@ -976,9 +975,5 @@ public final class Utilities {
     public static boolean showQuickspace(Context context) {
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
         return prefs.getBoolean(DESKTOP_SHOW_QUICKSPACE, true);
-    }
-
-    public static boolean isQuickspacePersonalityEnabled(Context context) {
-        return getPrefs(context).getBoolean(KEY_SHOW_QUICKSPACE_PSONALITY, true);
     }
 }
