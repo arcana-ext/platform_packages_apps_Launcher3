@@ -48,6 +48,7 @@ public class QuickEventsController {
     // PSA + Personality
     private String[] mPSAMorningStr;
     private String[] mPSAEvenStr;
+    private String[] mPSAAfterNoonStr;
     private String[] mPSAMidniteStr;
     private String[] mPSARandomStr;
     private String[] mPSATitleStr;
@@ -111,6 +112,7 @@ public class QuickEventsController {
         mPSAMorningStr = mContext.getResources().getStringArray(R.array.quickspace_psa_morning);
         mPSAEvenStr = mContext.getResources().getStringArray(R.array.quickspace_psa_evening);
         mPSAMidniteStr = mContext.getResources().getStringArray(R.array.quickspace_psa_midnight);
+        mPSAAfterNoonStr = mContext.getResources().getStringArray(R.array.quickspace_psa_noon);
         mPSARandomStr = mContext.getResources().getStringArray(R.array.quickspace_psa_random);
         int psaLength;
 
@@ -129,10 +131,16 @@ public class QuickEventsController {
                 mEventSubIcon = R.drawable.ic_quickspace_morning;
                 break;
 
-            case 18: case 19: case 20: case 21: case 22: case 23:
+            case 19: case 20: case 21: case 22: case 23:
                 psaLength = mPSAEvenStr.length - 1;
                 mEventTitleSub = mPSAEvenStr[getLuckyNumber(0, psaLength)];
                 mEventSubIcon = R.drawable.ic_quickspace_evening;
+                break;
+
+             case 16: case 17: case 18:
+                psaLength = mPSAAfterNoonStr.length - 1;
+                mEventTitleSub = mPSAAfterNoonStr[getLuckyNumber(0, psaLength)];
+                mEventSubIcon = R.drawable.ic_quickspace_noon;
                 break;
 
             case 0: case 1: case 2: case 3: case 4:
@@ -141,7 +149,7 @@ public class QuickEventsController {
                 mEventSubIcon = R.drawable.ic_quickspace_midnight;
                 break;
                 
-            case 11: case 12: case 13: case 14: case 15: case 16: case 17:
+            case 11: case 12: case 13: case 14: case 15:
                 psaLength = mPSARandomStr.length - 1;
                 mEventTitleSub = mPSARandomStr[getLuckyNumber(0, psaLength)];
                 mEventSubIcon = R.drawable.ic_quickspace_derp;

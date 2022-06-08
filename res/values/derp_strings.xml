@@ -51,6 +51,21 @@
         <item>Have you looked outside yet?</item>
         <item>Let\'s get this done.</item>
     </string-array>
+    <string-array name="quickspace_psa_noon">
+        <item>Good afternoon..</item>
+        <item>It\'s getting late now..</item>
+        <item>The sweet smell of home..</item>
+        <item>Time to buy some drinks!</item>
+        <item>The night is near..</item>
+        <item>The day is almost done..</item>
+        <item>Get some snacks while you\'re at it.</item>
+        <item>I want to buy some siomai now..</item>
+        <item>Time to go home!</item>
+        <item>Maybe it\'s time to prepare your dinner?</item>
+        <item>Did you have fun today?</item>
+        <item>We\'re almost there! Hang on!</item>
+        <item>Let\'s go for some ricebox!</item>
+    </string-array>
     <string-array name="quickspace_psa_evening">
         <item>Good night!</item>
         <item>Sleep well!</item>
