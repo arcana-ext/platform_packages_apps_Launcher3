@@ -114,7 +114,7 @@ public class MemInfoView extends TextView {
         public void run() {
             ActivityManager.MemoryInfo memInfo = new ActivityManager.MemoryInfo();
             mActivityManager.getMemoryInfo(memInfo);
-            int availMemMiB = (int)(memInfo.availMem / 1048576L);
+            int availMemMiB = (int)((memInfo.availMem / 1048576L) + 512);
             int totalMemMiB = (int)(memInfo.totalMem / 1048576L);
             setText("RAM:" + " " + String.valueOf(availMemMiB) + "/" + String.valueOf(totalMemMiB) + " " +"MB");
 
