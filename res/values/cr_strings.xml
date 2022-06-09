@@ -137,4 +137,7 @@
 
     <!-- Row Height -->
     <string name="row_height_title">Row height</string>
+    
+   <!-- Recents Scroll Vibration -->
+    <string name="pref_recents_vibration_title">Enable haptic feedback on recents scroll</string>
 </resources>

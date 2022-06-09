@@ -976,4 +976,9 @@ public final class Utilities {
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
         return prefs.getBoolean(DESKTOP_SHOW_QUICKSPACE, true);
     }
+
+    public static boolean recentsScrollVibration(Context context) {
+        return getPrefs(context).getBoolean("pref_recents_vibration", false);
+   }
+
 }
