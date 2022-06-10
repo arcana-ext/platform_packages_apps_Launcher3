@@ -34,7 +34,7 @@ import com.android.launcher3.R;
 import com.android.quickstep.SysUINavigationMode.Mode;
 
 import java.lang.Runnable;
-import java.math.BigDecimal;
+import java.math.*;
 
 public class MemInfoView extends TextView {
 
@@ -114,9 +114,10 @@ public class MemInfoView extends TextView {
         public void run() {
             ActivityManager.MemoryInfo memInfo = new ActivityManager.MemoryInfo();
             mActivityManager.getMemoryInfo(memInfo);
-            int availMemMiB = (int)((memInfo.availMem / 1048576L) + 512);
+            int availMemMiB = (int)((memInfo.availMem / 1048576L) + 576);
             int totalMemMiB = (int)(memInfo.totalMem / 1048576L);
-            setText("RAM:" + " " + String.valueOf(availMemMiB) + "/" + String.valueOf(totalMemMiB) + " " +"MB");
+            int roundedTotalMiB = (int)(Math.round(totalMemMiB / 1000.0) * 1000);
+            setText(String.valueOf(availMemMiB) + " " + "MB" + " " + "available" + " " + "|" + " " + String.valueOf(roundedTotalMiB) + " " +"MB");
 
             mHandler.postDelayed(this, 1000);
         }
