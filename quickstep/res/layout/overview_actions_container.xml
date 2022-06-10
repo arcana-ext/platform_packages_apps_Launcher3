@@ -41,20 +41,6 @@
             android:foregroundGravity="center"/>
 
         <Space
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/action_clear_all"
-            android:layout_width="60dp"
-            android:layout_height="48dp"
-            android:background="@drawable/recent_button_bg"
-            android:backgroundTint="@color/recent_button_bg_color"
-            android:foreground="@drawable/ic_close_all"
-            android:foregroundGravity="center"/>
-
-        <Space
             android:id="@+id/lens_space"
             android:layout_width="0dp"
             android:layout_height="1dp"
@@ -78,12 +64,28 @@
 
         <Button
             android:id="@+id/kill_app"
-            style="@style/OverviewActionButton"
+            android:layout_width="60dp"
+            android:layout_height="48dp"
+            android:background="@drawable/recent_button_bg"
+            android:backgroundTint="@color/recent_button_bg_color"
+            android:foreground="@drawable/ic_kill_app_recents"
+            android:foregroundGravity="center"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/action_clear_all"
+            style="@style/OverviewClearAllButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_kill_app_recents"
-            android:text="@string/recents_kill_app"
-            android:theme="@style/ThemeControlHighlightWorkspaceColor" />
+            android:layout_height="48dp"
+            android:text="@string/recents_clear_all"
+            android:background="@drawable/recent_button_bg"
+            android:backgroundTint="@color/recent_button_bg_color"
+            android:textColor="@color/recents_button_fg_color"
+            android:gravity="center"/>
 
         <Space
             android:id="@+id/action_split_space"
