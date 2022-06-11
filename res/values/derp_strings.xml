@@ -38,9 +38,14 @@
         <item>Good morning my friend!</item>
         <item>What a beautiful day!</item>
         <item>Have a nice day!</item>
-        <item>Good morning beauty/handsome! - not an automated message</item>
-        <item>What about a small 5 minutes nap?</item>
+        <item>Good morning beauty! -not dfntly automated</item>
+        <item>Uhhh.. 5 more minutes...</item>
+        <item>I pour milk first before cereal...</item>
+        <item>Good morning handsome! -not dfntly automated</item>
+        <item>The weather is good, i mean 32C. unsupported msg.</item>
+        <item>Weather is cold hot winter,spring, summer or fall &#127925;</item>
         <item>That\'s one way to wake up.</item>
+        <item>Rest in peace melatonin.</item>
         <item>You should change your alarm sounds.</item>
         <item>Looks like it\'s a beautiful day, isn\'t it?</item>
         <item>Let\'s get this bread.</item>
@@ -65,6 +70,11 @@
         <item>Did you have fun today?</item>
         <item>We\'re almost there! Hang on!</item>
         <item>Let\'s go for some ricebox!</item>
+        <item>It\'s nice to sleep under a tree..</item>
+        <item>I love watching the sunset..</item>
+        <item>Have you eaten your merienda?</item>
+        <item>Siesta at it\'s finest..</item>
+        <item>Craving for some empanada..</item>
     </string-array>
     <string-array name="quickspace_psa_evening">
         <item>Good night!</item>
@@ -80,6 +90,12 @@
         <item>Tomorrow might be a great day</item>
         <item>Get your bones ready for tomorrow</item>
         <item>Wala na, finish na.</item>
+        <item>I\'m feeling sleepy now..</item>
+        <item>Why aren\'t you sleep yet?</item>
+        <item>Rest in peace melatonin (2).</item>
+        <item>Dance the night away...</item>
+        <item>Aren\'t the moon and stars amazing? </item>
+        <item>There are many what ifs in this world. Relax.</item>
     </string-array>
     <string-array name="quickspace_psa_midnight">
         <item>Um... good mornight?</item>
@@ -89,6 +105,11 @@
         <item>Sleep is for the weak!</item>
         <item>You should fix your sleep schedule</item>
         <item>Are you more productive at this time?</item>
+        <item>RIP melatonin.. zzzz</item>
+        <item>zzzzzZZZZzzzzzz</item>
+        <item>I was able to sleep, but you weren\'t!??</item>
+        <item>I bet you lost a lot of ranked matches. LMAO</item>
+        <item>Go ahead drink a cup of coffee, i\'ll contact st. Peter</item>
     </string-array>
     <string-array name="quickspace_psa_random">
         <item>Whats up? Got some games? - your cousin</item>
@@ -115,6 +136,7 @@
         <item>If nobody loves you, i guess you\'re ugly.</item>
         <item>Fahad jobless guy</item>
         <item>Why are you always looking at your homescreen?</item>
+        <item>FYI, my text/strings/character length is limited..</item>
         <item>Hey! Hey! Please make me aesthetic!</item>
         <item>My jungler gets killed by a frog sometimes &#128128;</item>
     </string-array>
