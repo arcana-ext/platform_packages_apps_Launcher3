@@ -49,7 +49,6 @@ import java.io.PrintWriter;
 @SuppressLint("NewApi")
 public class DeviceProfile {
 
-    public static final String KEY_PHONE_TASKBAR = "pref_allow_phone_taskbar";
     public static final String KEY_PHONE_OVERVIEW_GRID = "pref_allow_phone_overview_grid";
     public static final String KEY_ROW_HEIGHT = "pref_row_height";
 
@@ -283,8 +282,7 @@ public class DeviceProfile {
 
         hotseatQsbHeight = res.getDimensionPixelSize(R.dimen.qsb_widget_height);
         SharedPreferences prefs = Utilities.getPrefs(context);
-        boolean allowTaskbar = prefs.getBoolean(KEY_PHONE_TASKBAR, isTablet);
-        isTaskbarPresent = allowTaskbar && ApiWrapper.TASKBAR_DRAWN_IN_PROCESS
+         isTaskbarPresent = isTablet && ApiWrapper.TASKBAR_DRAWN_IN_PROCESS
                 && FeatureFlags.ENABLE_TASKBAR.get();
         if (isTaskbarPresent) {
             taskbarSize = res.getDimensionPixelSize(R.dimen.taskbar_size);

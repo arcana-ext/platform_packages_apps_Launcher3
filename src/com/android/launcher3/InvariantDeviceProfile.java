@@ -57,9 +57,6 @@ import com.android.launcher3.util.IntArray;
 import com.android.launcher3.util.MainThreadInitializedObject;
 import com.android.launcher3.util.Themes;
 import com.android.launcher3.util.WindowBounds;
-import com.android.quickstep.SystemUiProxy;
-
-import android.provider.Settings;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -184,8 +181,6 @@ public class InvariantDeviceProfile implements OnSharedPreferenceChangeListener 
     private Context mContext;
 
     private final ArrayList<OnIDPChangeListener> mChangeListeners = new ArrayList<>();
-
-    private static boolean isTablet;
 
     @VisibleForTesting
     public InvariantDeviceProfile() {
@@ -313,17 +308,6 @@ public class InvariantDeviceProfile implements OnSharedPreferenceChangeListener 
             case DeviceProfile.KEY_ROW_HEIGHT:
                 onConfigChanged(mContext);
                 break;
-            case DeviceProfile.KEY_PHONE_TASKBAR:
-                // Create the illusion of this taking effect immediately
-                // Also needed because TaskbarManager inits before SystemUiProxy on start
-                boolean enabled = Utilities.getPrefs(mContext).getBoolean(DeviceProfile.KEY_PHONE_TASKBAR, isTablet);
-                Settings.System.putInt(mContext.getContentResolver(),
-                        Settings.System.ENABLE_TASKBAR, enabled ? 1 : 0);
-
-                SystemUiProxy.INSTANCE.get(mContext).setTaskbarEnabled(enabled);
-
-                onConfigChanged(mContext, true);
-                break;
         }
     }
 
@@ -450,10 +434,6 @@ public class InvariantDeviceProfile implements OnSharedPreferenceChangeListener 
     }
 
     private void onConfigChanged(Context context) {
-        onConfigChanged(context, false);
-    }
-
-    private void onConfigChanged(Context context, boolean taskbarChanged) {
         Object[] oldState = toModelState();
 
         // Re-init grid
@@ -462,7 +442,7 @@ public class InvariantDeviceProfile implements OnSharedPreferenceChangeListener 
 
         boolean modelPropsChanged = !Arrays.equals(oldState, toModelState());
         for (OnIDPChangeListener listener : mChangeListeners) {
-            listener.onIdpChanged(modelPropsChanged, taskbarChanged);
+            listener.onIdpChanged(modelPropsChanged);
         }
     }
 
@@ -593,7 +573,7 @@ public class InvariantDeviceProfile implements OnSharedPreferenceChangeListener 
         int minWidthPx = Integer.MAX_VALUE;
         int minHeightPx = Integer.MAX_VALUE;
         for (WindowBounds bounds : displayInfo.supportedBounds) {
-            isTablet = displayInfo.isTablet(bounds);
+            boolean isTablet = displayInfo.isTablet(bounds);
             if (isTablet && deviceType == TYPE_MULTI_DISPLAY) {
                 // For split displays, take half width per page
                 minWidthPx = Math.min(minWidthPx, bounds.availableSize.x / 2);
@@ -710,7 +690,7 @@ public class InvariantDeviceProfile implements OnSharedPreferenceChangeListener 
         /**
          * Called when the device provide changes
          */
-        void onIdpChanged(boolean modelPropertiesChanged, boolean taskbarChanged);
+        void onIdpChanged(boolean modelPropertiesChanged);
     }
 
 

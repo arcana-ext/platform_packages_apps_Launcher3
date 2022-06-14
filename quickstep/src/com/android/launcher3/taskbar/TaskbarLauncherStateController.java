@@ -156,7 +156,7 @@ import java.util.function.Supplier;
     }
 
     public boolean isAnimatingToLauncher() {
-        return mIsAnimatingToLauncherViaResume || mIsAnimatingToLauncherViaGesture || hasAnyFlag(FLAG_TRANSITION_STATE_RUNNING);
+        return mIsAnimatingToLauncherViaResume || mIsAnimatingToLauncherViaGesture;
     }
 
     /**
@@ -241,17 +241,16 @@ import java.util.function.Supplier;
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         mIsAnimatingToLauncherViaResume = false;
-                    }
-
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-                        mIsAnimatingToLauncherViaResume = isResumed;
-
                         TaskbarStashController stashController =
                                 mControllers.taskbarStashController;
                         stashController.updateStateForFlag(FLAG_IN_APP, !isResumed);
                         stashController.applyState(duration);
                     }
+
+                @Override
+                public void onAnimationStart(Animator animation) {
+                    mIsAnimatingToLauncherViaResume = isResumed();
+                }
                 });
                 animatorSet.play(resumeAlignAnim);
             }
